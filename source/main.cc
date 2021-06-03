@@ -12,5 +12,7 @@ int main(int argc, char *argv[]) {
   std::ifstream rom(argv[1]);
   Nes::Core::Machine mach;
   mach.Load(rom, Nes::Core::FAVORED_NES_NTSC, false, nullptr, false, nullptr, Nes::Core::Image::CARTRIDGE);
-  mach.Execute(nullptr, nullptr, nullptr);
+  for (int i = 0; i < 120000; ++i)
+    mach.Execute(nullptr, nullptr, nullptr);
+  return 0;
 }
